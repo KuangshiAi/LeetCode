@@ -19,7 +19,7 @@ class Solution(object):
                 cur_word = str[i:i+m]
                 if cur_word in temp_words:
                     temp_words.remove(cur_word)
-                i += 1
+                i += m
             return temp_words == []
         
         j = p
