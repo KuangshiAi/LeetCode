@@ -10,6 +10,7 @@ class Solution(object):
         k = len(words)
         p = m * k
         res = []
+        valid = set()
 
         def validsubstring(str, words, m):
             i = 0
@@ -18,13 +19,16 @@ class Solution(object):
                 cur_word = str[i:i+m]
                 if cur_word in temp_words:
                     temp_words.remove(cur_word)
-                i += m
+                i += 1
             return temp_words == []
         
         j = p
         while j <= len(s):
-            if validsubstring(s[j-p:j], words, m):
+            if s[j-p:j] in valid:
                 res.append(j-p)
+            elif validsubstring(s[j-p:j], words, m):
+                res.append(j-p)
+                valid.add(s[j-p:j])
             j += m
         
         return res
