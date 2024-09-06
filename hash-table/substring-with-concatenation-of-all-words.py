@@ -29,7 +29,7 @@ class Solution(object):
             elif validsubstring(s[j-p:j], words, m):
                 res.append(j-p)
                 valid.add(s[j-p:j])
-            j += m
+            j += 1
         
         return res
         
