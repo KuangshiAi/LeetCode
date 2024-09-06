@@ -25,7 +25,7 @@ class Solution(object):
         while j <= len(s):
             if validsubstring(s[j-p:j], words, m):
                 res.append(j-p)
-            j += 1
+            j += m
         
         return res
         
