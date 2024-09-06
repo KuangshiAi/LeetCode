@@ -7,29 +7,26 @@ class Solution(object):
         :type n: int
         :rtype: None Do not return anything, modify nums1 in-place instead.
         """
-        nums3 = []
-        i = 0
-        j = 0
+        i = m-1
+        j = n-1
+        k = m+n-1
         if m == 0:
-            for i in range(len(nums1)):
-                nums1[i] = nums2[i]
+            for q in range(n):
+                nums1[q] = nums2[q]
         elif n == 0:
             pass
         else:
             while True:
-                if nums1[i] <= nums2[j]:
-                    nums3.append(nums1[i])
-                    i += 1
+                if nums1[i] >= nums2[j]:
+                    nums1[k] = nums1[i]
+                    i -= 1
+                    k -= 1
                 else:
-                    nums3.append(nums2[j])
-                    j += 1
-                if i == m or j == n:
+                    nums1[k] = nums2[j]
+                    j -= 1
+                    k -= 1
+                if j < 0 or i < 0:
                     break
-            if i == m:
-                nums3 += nums2[j:]
-            else:
-                nums3 += nums1[i:]
-            
-            for i in range(len(nums1)):
-                nums1[i] = nums3[i]
+            if i < 0:
+                nums1[:j+1] = nums2[:j+1]
         
