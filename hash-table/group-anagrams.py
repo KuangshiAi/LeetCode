@@ -6,7 +6,7 @@ class Solution(object):
         """
         res = {}
         for word in strs:
-            char_set = frozenset(list(word))
+            char_set = tuple(sorted(list(word)))
             if char_set not in res.keys():
                 res[char_set] = [word]
             else:
