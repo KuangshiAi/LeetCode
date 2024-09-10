@@ -14,7 +14,10 @@ class Solution(object):
                 res.append(j+1)
                 break
             elif numbers[i] + numbers[j] < target:
-                j = j + 1
+                if j-i == 1:
+                    j = j + 1
+                else:
+                    i = i + 1
             elif numbers[i] + numbers[j] > target:
                 i = i-1
         return res    
