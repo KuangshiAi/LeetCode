@@ -7,18 +7,15 @@ class Solution(object):
         """
         res = []
         i = 0
-        j = 1
+        j = len(numbers)-1
         while True:
             if numbers[i] + numbers[j] == target:
                 res.append(i+1)
                 res.append(j+1)
                 break
             elif numbers[i] + numbers[j] < target:
-                if j-i == 1:
-                    j = j + 1
-                else:
-                    i = i + 1
+                i += 1
             elif numbers[i] + numbers[j] > target:
-                i = i-1
+                j -= 1
         return res    
         
