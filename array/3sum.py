@@ -12,7 +12,8 @@ class Solution(object):
         while True:
             while j < k:
                 if nums[i] + nums[j] + nums[k] == 0:
-                    res.append([nums[i], nums[j], nums[k]])
+                    if [nums[i], nums[j], nums[k]] not in res:
+                        res.append([nums[i], nums[j], nums[k]])
                     break
                 elif nums[i] + nums[j] + nums[k] > 0:
                     k -= 1
