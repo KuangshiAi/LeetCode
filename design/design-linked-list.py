@@ -53,7 +53,7 @@ class MyLinkedList(object):
         :type val: int
         :rtype: None
         """
-        if index < 0 or index >= self.size:
+        if index < 0 or index > self.size:
             return
         cur = self.dummy_head
         for i in range(index):
