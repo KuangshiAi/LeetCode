@@ -5,19 +5,17 @@ class Solution(object):
         :type magazine: str
         :rtype: bool
         """
-        dictionary = {}
+        hashmap = {}
         for char in magazine:
-            if char not in dictionary:
-                dictionary[char] = 1
+            if char not in hashmap:
+                hashmap[char] = 1
             else:
-                dictionary[char] += 1
-        
+                hashmap[char] += 1
         for char in ransomNote:
-            if char in dictionary:
-                dictionary[char] -= 1
-                if dictionary[char] == 0:
-                    dictionary.pop(char)
+            if char in hashmap:
+                hashmap[char] -= 1
+                if hashmap[char] == 0:
+                    del hashmap[char]
             else:
                 return False
-        
         return True
