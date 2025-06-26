@@ -9,7 +9,7 @@ class Solution(object):
             return nums[0]
         bp = [0]*n
         bp[0] = nums[0]
-        bp[1] = min(nums[0], nums[1])
+        bp[1] = max(nums[0], nums[1])
         for i in range(2, n):
             bp[i] = max(bp[i-1], bp[i-2]+nums[i])
         return bp[n-1]
