@@ -24,6 +24,9 @@ class Solution(object):
                 change = dp(i+1, 0, target) + need - min(deleted, need)
                 return min(insert, delete, change)
         
-        return min(dp(0,0,target) for target in range(max(count)+1))
+        mini = float('inf')
+        for target in range(max(count)+1):
+            mini=min(mini, dp(0,0,target))
+        return mini
 
         
