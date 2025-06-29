@@ -10,7 +10,7 @@ class Solution(object):
         :type root: Optional[TreeNode]
         :rtype: int
         """
-        self.ans = 1
+        self.ans = 0
         def diam(node):
             if not node:
                 return 0
