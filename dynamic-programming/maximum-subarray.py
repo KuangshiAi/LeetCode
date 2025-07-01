@@ -17,11 +17,22 @@ class Solution(object):
         #         self.max = cur_sum
         # return self.max
 
-        dp = [0] * len(nums)
-        dp[0] = nums[0]
+        # dp = [0] * len(nums)
+        # dp[0] = nums[0]
+        # for i in range(1, len(nums)):
+        #     if dp[i-1] <= 0:
+        #         dp[i] = nums[i]
+        #     else:
+        #         dp[i] = dp[i-1] + nums[i]
+        # return max(dp)
+
+        self.max = max(0, nums[0])
+        dp = nums[0]
         for i in range(1, len(nums)):
-            if dp[i-1] <= 0:
-                dp[i] = nums[i]
+            if dp <= 0:
+                dp = nums[i]
             else:
-                dp[i] = dp[i-1] + nums[i]
-        return max(dp)
+                dp = dp + nums[i]
+            if dp > self.max:
+                self.max = dp
+        return self.max
