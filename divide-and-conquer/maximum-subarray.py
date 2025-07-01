@@ -26,7 +26,7 @@ class Solution(object):
         #         dp[i] = dp[i-1] + nums[i]
         # return max(dp)
 
-        self.max = max(0, nums[0])
+        self.max = nums[0]
         dp = nums[0]
         for i in range(1, len(nums)):
             if dp <= 0:
