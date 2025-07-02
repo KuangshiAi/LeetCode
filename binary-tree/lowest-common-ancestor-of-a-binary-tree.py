@@ -13,15 +13,19 @@ class Solution(object):
         :type q: TreeNode
         :rtype: TreeNode
         """
-        if not root or root==p or root==q:
-            return root
-        left = self.lowestCommonAncestor(root.left, p, q)
-        right = self.lowestCommonAncestor(root.right, p,q)
-        if not right:
-            return left
-        if not left:
-            return right
-        # if not right and not left:
-        #     return
-        return root
+        if not root:
+            return None
+        
+        def search(root, p, q):
+            if root == q or root == p or not root:
+                return root
+            left = search(root.left, p, q)
+            right = search(root.right, p, q)
+            if left and right:
+                return root
+            if not left:
+                return right
+            if not right:
+                return left
+        return search(root, p, q)
         
