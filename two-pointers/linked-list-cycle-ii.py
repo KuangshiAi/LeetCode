@@ -10,18 +10,20 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        fast = head
-        slow = head
+        slow = fast = head
+        if not head:
+            return None
         while fast and fast.next:
             fast = fast.next.next
             slow = slow.next
             if fast == slow:
                 break
-        else:
+        if not fast or not fast.next:
             return None
-        cur1 = slow
-        cur2 = head
-        while cur1 != cur2:
-            cur1 = cur1.next
-            cur2 = cur2.next
-        return cur1
+        else:
+            pointer1 = head
+            pointer2 = fast
+            while pointer1 != pointer2:
+                pointer1 = pointer1.next
+                pointer2 = pointer2.next
+            return pointer1
