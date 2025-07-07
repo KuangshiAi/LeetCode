@@ -5,11 +5,11 @@ class Solution(object):
         :rtype: int
         """
         res = 0
-        buy_price = prices[0]
-        for i in range(1,len(prices)):
-            res = max(prices[i]-buy_price, res)
-            if prices[i] < buy_price:
-                buy_price = prices[i]
+        buy_prices = prices[0]
+        for i in range(len(prices)):
+            res = max(res, prices[i]-buy_prices)
+            if buy_prices> prices[i]:
+                buy_prices = prices[i]
         return res
 
         
