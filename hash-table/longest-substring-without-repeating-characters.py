@@ -4,7 +4,7 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        res = 0
+        res = 1
         dic = {} # the last place where s[i] appears
         i = 0
         for j in range(len(s)):
