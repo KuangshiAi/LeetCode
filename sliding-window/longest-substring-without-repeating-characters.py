@@ -4,9 +4,9 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        res = 1
+        res = 0
         dic = {} # the last place where s[i] appears
-        i = 0
+        i = -1
         for j in range(len(s)):
             if s[j] in dic:
                 i = max(i, dic[s[j]])
