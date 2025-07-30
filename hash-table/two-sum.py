@@ -5,10 +5,11 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        buffer = {}
+        hashmap = {}
         for i in range(len(nums)):
-            if target - nums[i] in buffer.keys():
-                return [buffer[target - nums[i]], i]
-            else:
-                buffer[nums[i]] = i
+            hashmap[nums[i]] = i
+        for i in range(len(nums)):
+            comp = target - nums[i]
+            if comp in hashmap and hashmap[comp] != i:
+                return [i, hashmap[comp]]
         
