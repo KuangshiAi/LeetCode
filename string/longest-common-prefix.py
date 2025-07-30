@@ -34,4 +34,4 @@ class Solution(object):
                 right_lcp = divide_and_conquer(strs, mid+1, r)
                 return LCP(left_lcp, right_lcp)
         
-        divide_and_conquer(strs, 0, len(strs)-1)
+        return divide_and_conquer(strs, 0, len(strs)-1)
