@@ -7,9 +7,8 @@ class Solution(object):
         """
         hashmap = {}
         for i in range(len(nums)):
-            hashmap[nums[i]] = i
-        for i in range(len(nums)):
             comp = target - nums[i]
             if comp in hashmap and hashmap[comp] != i:
                 return [i, hashmap[comp]]
+            hashmap[nums[i]] = i
         
