@@ -12,6 +12,7 @@ class Solution(object):
                 return
             if total == target:
                 res.add(tuple(seq))
+                return
             for i in range(start, len(candidates)):
                 seq.append(candidates[i])
                 backtrack(seq, i+1, total+candidates[i])
