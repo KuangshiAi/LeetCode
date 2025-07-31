@@ -6,14 +6,16 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         candidates.sort()
-        res = set()
+        res = []
         def backtrack(seq, start, total):
             if total > target:
                 return
             if total == target:
-                res.add(tuple(seq))
+                res.append(seq[:])
                 return
             for i in range(start, len(candidates)):
+                if i > start and candidates[i] == candidates[i - 1]:
+                    continue
                 seq.append(candidates[i])
                 backtrack(seq, i+1, total+candidates[i])
                 seq.pop()
