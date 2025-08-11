@@ -6,11 +6,12 @@ class Solution(object):
         """
         from collections import deque
         stack = deque()
-        mapping = {')':'(', '}':'{', ']':'['}
+        bracket_map = {')':'(', '}':'{', ']':'['}
         for char in s:
-            if char in mapping.values():
+            if char in bracket_map.values():
                 stack.append(char)
-            elif char in mapping.keys():
-                if not stack or mapping[char] != stack.pop():
-                    return False
-        return not stack
+            elif not stack or bracket_map[char] != stack.pop():
+                return False
+        if stack:
+            return False
+        return True
