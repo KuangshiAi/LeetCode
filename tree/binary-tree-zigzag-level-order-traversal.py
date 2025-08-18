@@ -16,19 +16,20 @@ class Solution(object):
         queue = deque()
         queue.append(root)
         res = []
-        visited = set()
-        visited.add(root)
-        while len(queue) > 0:
-            layer = deque()
-            for _ in range(len(queue)):
-                node = queue.popleft()
-                if len(res) % 2 == 0:
-                    layer.append(node.val)
+        level = 0
+        while queue:
+            n = len(queue)
+            cur_layer = deque()
+            for i in range(n):
+                cur_node = queue.popleft()
+                if level % 2 == 0:
+                    cur_layer.append(cur_node.val)
                 else:
-                    layer.appendleft(node.val)
-                if node.left and node.left not in visited:
-                    queue.append(node.left)
-                if node.right and node.right not in visited:
-                    queue.append(node.right)
-            res.append(list(layer))
+                    cur_layer.appendleft(cur_node.val)
+                if cur_node.left:
+                    queue.append(cur_node.left)
+                if cur_node.right:
+                    queue.append(cur_node.right)
+            res.append(list(cur_layer))
+            level += 1
         return res
