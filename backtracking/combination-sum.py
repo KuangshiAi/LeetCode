@@ -6,18 +6,17 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         res = []
-        def backtrack(path, total, start):
+        def backtrack(seq, total, start):
             if total == target:
-                res.append(path[:])
+                res.append(seq[:])
                 return
             if total > target:
                 return
             for i in range(start, len(candidates)):
-                path.append(candidates[i])
-                backtrack(path, total+candidates[i], i)
-                path.pop()
-        
-        backtrack([],0,0)
+                seq.append(candidates[i])
+                backtrack(seq, total+candidates[i], i)
+                seq.pop()
+        backtrack([], 0, 0)
         return res
 
         
