@@ -7,6 +7,8 @@ class Solution(object):
         """
         words = s.split(' ')
         hashmap = {}
+        if len(words) != len(s):
+            return False
         for i in range(len(pattern)):
             char = pattern[i]
             if char not in hashmap.keys() and words[i] not in hashmap.values():
