@@ -11,7 +11,7 @@ class Solution(object):
             char = pattern[i]
             if char not in hashmap.keys() and words[i] not in hashmap.values():
                 hashmap[char] = words[i]
-            elif words[i] != hashmap[char]:
+            elif char not in hashmap.keys() or words[i] != hashmap[char]:
                 return False
         return True
                 
