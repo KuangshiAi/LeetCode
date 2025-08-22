@@ -14,6 +14,7 @@ class RandomizedSet(object):
             return False
         self.pos[val] = len(self.arr)
         self.arr.append(val)
+        return True
         
 
     def remove(self, val):
