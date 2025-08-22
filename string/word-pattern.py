@@ -7,7 +7,7 @@ class Solution(object):
         """
         words = s.split(' ')
         hashmap = {}
-        if len(words) != len(s):
+        if len(words) != len(pattern):
             return False
         for i in range(len(pattern)):
             char = pattern[i]
