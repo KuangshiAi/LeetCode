@@ -29,6 +29,7 @@ class RandomizedSet(object):
         self.arr[i] = last
         self.pos[last] = i
         self.arr.pop()
+        del self.pos[val]
         return True
         
 
