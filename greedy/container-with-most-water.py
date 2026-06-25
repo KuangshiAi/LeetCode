@@ -11,13 +11,9 @@ class Solution(object):
             h = min(height[left], height[right])
             if (right-left)*h > max_water:
                 max_water = (right-left)*h
-            if height[left+1]>height[left]:
+            if height[right]>height[left]:
                 left+=1
-                continue
-            elif height[right-1]>height[right]:
-                right-=1
-                continue
             else:
-                break
+                right-=1
         return max_water
             
